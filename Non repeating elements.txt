@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class NonRepeatingElements {
+    public static List<Integer> findNonRepeating(int[] arr) {
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        List<Integer> nonRepeatingElements = new ArrayList<>();
+
+               for (int num : arr) {
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+        }
+
+               for (int num : arr) {
+            if (frequencyMap.get(num) == 1) {
+                nonRepeatingElements.add(num);
+            }
+        }
+
+        return nonRepeatingElements;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {4, 5, 4, 5, 6, 7, 8, 8};
+        List<Integer> result = findNonRepeating(arr);
+        System.out.println(result);
+    }
+}
